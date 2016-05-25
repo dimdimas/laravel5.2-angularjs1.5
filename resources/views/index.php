@@ -46,7 +46,7 @@
                             <h4 class="modal-title" id="myModalLabel">{{form_title}}</h4>
                         </div>
                         <div class="modal-body">
-                            <form name="frmEmployees" class="form-horizontal" novalidate="">
+                            
 
                                 <div class="form-group error">
                                     <label for="inputEmail3" class="col-sm-3 control-label">Name</label>
@@ -77,7 +77,7 @@
                                     </div>
                                 </div>
 
-                            </form>
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" id="btn-save" ng-click="save(modalstate, id)" ng-disabled="frmEmployees.$invalid">Save changes</button>

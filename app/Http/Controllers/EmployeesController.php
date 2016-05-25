@@ -19,7 +19,7 @@ class EmployeesController extends Controller
         if ($id == null) {
           return Employee::orderBy('id', 'asc')->get();
         }else {
-          return $htis->show($id);
+          return $this->show($id);
         }
     }
 
@@ -85,9 +85,9 @@ class EmployeesController extends Controller
         $employee = Employee::find($id);
 
         $employee->name = $request->input('name');
-        $employee->email = $request->input('email');
-        $employee->contact_number = $request->input('contact_number');
+
         $employee->position = $request->input('position');
+        $employee->email = $request->input('email');
         $employee->save();
 
         return "Sucess updating user #" . $employee->id;

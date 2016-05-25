@@ -1,10 +1,13 @@
 app.controller('employeesController', function($scope, $http, API_URL) {
     //retrieve employees listing from API
-    $http.get(API_URL + "employees")
-            .success(function(response) {
-                $scope.employees = response;
-            });
+    $scope.getall = function(){
+      $http.get(API_URL + "employees")
+          .success(function(response) {
+              $scope.employees = response;
+          });
+    }
 
+    $scope.getall();
     //show modal form
     $scope.toggle = function(modalstate, id) {
         $scope.modalstate = modalstate;
@@ -45,7 +48,9 @@ app.controller('employeesController', function($scope, $http, API_URL) {
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function(response) {
             console.log(response);
-            location.reload();
+            $scope.getall();
+            $('#myModal').modal('hide');
+            //location.reload();
         }).error(function(response) {
             console.log(response);
             alert('This is embarassing. An error has occured. Please check the log for details');
